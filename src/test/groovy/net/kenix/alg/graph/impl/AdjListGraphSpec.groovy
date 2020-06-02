@@ -1,32 +1,11 @@
 package net.kenix.alg.graph.impl
 
 import net.kenix.alg.graph.Graph
-import spock.lang.Specification
 
 /**
  * @author zzhao
  */
-class AdjListGraphSpec extends Specification {
-
-  def 'graph works'() {
-    when:
-    def g = new AdjListGraph(7)
-    then:
-    g.V() == 7
-    g.E() == 0
-
-    when:
-    g = create()
-    then:
-    g.E() == 11
-    g.adj(0).every { [1].contains(it) }
-    g.adj(1).every { [0, 1, 2, 3].contains(it) }
-    g.adj(2).every { [1, 3].contains(it) }
-    g.adj(3).every { [1, 2].contains(it) }
-    g.adj(4).every { [5, 6].contains(it) }
-    g.adj(5).every { [4, 6].contains(it) }
-    g.adj(6).every { [4, 5, 6].contains(it) }
-  }
+class AdjListGraphSpec extends GraphTCK {
 
   /**
    * 0-1>   4=5
@@ -47,5 +26,11 @@ class AdjListGraphSpec extends Specification {
     g.addEdge(6, 6)
     g.addEdge(6, 6)
     return g
+  }
+
+  @Override
+  Graph subjectUnderTest(Map<String, Object> ctx) {
+    def nov = ctx['numberOfVertices'] as int
+    return ctx['empty'] ? new AdjListGraph(nov) : create()
   }
 }
