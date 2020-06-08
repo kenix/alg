@@ -4,7 +4,7 @@
 package net.kenix.alg.collection;
 
 /** @author zzhao */
-public interface Common<T> extends Iterable<T> {
+public interface Countable {
 
   boolean isEmpty();
 

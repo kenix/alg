@@ -4,7 +4,7 @@
 package net.kenix.alg.collection;
 
 /** @author zzhao */
-public interface Bag<T> extends Common<T> {
+public interface Bag<T> extends Countable, Iterable<T> {
 
   void add(T t);
 

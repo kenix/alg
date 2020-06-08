@@ -4,7 +4,7 @@
 package net.kenix.alg.collection;
 
 /** @author zzhao */
-public interface Queue<T> extends Common<T>, Peekable<T> {
+public interface Queue<T> extends Countable, Peekable<T>, Iterable<T> {
 
   void enqueue(T t);
 

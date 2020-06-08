@@ -4,7 +4,7 @@
 package net.kenix.alg.collection;
 
 /** @author zzhao */
-public interface Stack<T> extends Common<T>, Peekable<T> {
+public interface Stack<T> extends Countable, Peekable<T>, Iterable<T> {
 
   void push(T t);
 
